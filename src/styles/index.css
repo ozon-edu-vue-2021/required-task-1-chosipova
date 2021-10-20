@@ -25,6 +25,8 @@ button {
     border: none;
     color: #fff;
     cursor: pointer;
+    -webkit-transition: 0.2s background-color;
+    -o-transition: 0.2s background-color;
     transition: 0.2s background-color;
 }
 
@@ -39,26 +41,24 @@ button:disabled:hover {
 main {
     max-width: 1400px;
     min-height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     padding: 50px;
     background-color: #fff;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     border-radius: 6px;
     margin: 50px auto;
 }
 
 /* Action style */
-.action {
+.fetch {
     background-color: #66BB6A;
     font-size: 16px;
     padding: 10px 20px;
     border-radius: 6px;
-    margin: 10px 0;
+    margin: 10px auto;
 }
 
-.action:hover {
+.fetch:hover {
     background-color: #4CAF50;
 }
 
@@ -67,12 +67,17 @@ main {
     position: relative;
     padding: 20px;
     margin-bottom: 20px;
-    column-count: 4;
-    column-gap: 5px;
+    -webkit-column-count: 4;
+       -moz-column-count: 4;
+            column-count: 4;
+    -webkit-column-gap: 5px;
+       -moz-column-gap: 5px;
+            column-gap: 5px;
     min-height: 400px;
 }
 
-a {
+.content a,
+.content img {
     display: inline-block;
     border-radius: 6px;
     overflow: hidden;
@@ -80,22 +85,24 @@ a {
     min-height: 100px;
 }
 
-a:nth-child(n) {
+.content img:nth-child(n) {
     background-color: #EFEBE9;
 }
 
-a:nth-child(2n) {
+.content img:nth-child(2n) {
     background-color: #D7CCC8;
 }
 
-a:nth-child(3n) {
+.content img:nth-child(3n) {
     background-color: #BCAAA4;
 }
 
 /* Popup style */
 .popup .content {
     text-align: right;
-    column-count: initial;
+    -webkit-column-count: initial;
+       -moz-column-count: initial;
+            column-count: initial;
 }
 
 figure {
@@ -120,6 +127,8 @@ figcaption {
 .popup {
     position: fixed;
     visibility: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     top: 0;
     left: 0;
@@ -131,9 +140,10 @@ figcaption {
 
 .popup.open {
     visibility: visible;
+    z-index: 1;
 }
 
-.action {
+.close {
     position: absolute;
     top: 50px;
     right: 50px;
@@ -148,7 +158,8 @@ figcaption {
 .popup .content {
     width: 100%;
     margin: auto;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     max-width: 600px;
     background-color: #fff;
     border-radius: 6px;
