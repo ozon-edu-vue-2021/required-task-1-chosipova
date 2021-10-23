@@ -102,7 +102,6 @@ window.onload = function () {
 
         list.forEach(function (element) {
             const clone = templateImageCard.content.cloneNode(true);
-            const fragment = document.createDocumentFragment();
 
             const link = clone.querySelector('a');
             link.href = element.url;
@@ -113,8 +112,7 @@ window.onload = function () {
             image.alt = element.author;
             image.classList.add('preview');
 
-            fragment.appendChild(clone);
-            container.appendChild(fragment);
+            container.appendChild(clone);
         });
         hideLoader();
     }
@@ -160,7 +158,7 @@ window.onload = function () {
     const actionHandler = function (evt) {
         evt.preventDefault();
         const nextPage = evt.currentTarget.dataset.page;
-        if (nextPage > MAX_PAGE_IAMGES) {
+        if (nextPage >= MAX_PAGE_IAMGES) {
             console.warn(`WARN: You are trying to call a page that exceeds ${MAX_PAGE_IAMGES}`);
             evt.currentTarget.disabled = true;
         } else {
